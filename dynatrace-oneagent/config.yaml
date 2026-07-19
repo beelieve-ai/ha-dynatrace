@@ -1,5 +1,5 @@
 name: Dynatrace OneAgent
-version: "1.0.0"
+version: "1.1.0"
 slug: dynatrace_oneagent
 description: Dynatrace OneAgent infrastructure monitoring for Home Assistant OS
 url: https://github.com/beelieve-ai/ha-dynatrace/tree/main/dynatrace-oneagent
@@ -26,6 +26,7 @@ options:
   environment_url: null
   paas_token: null
   monitoring_mode: infra-only
+  installer_arch: aarch64
   log_monitoring: true
   host_group: ""
   additional_args: ""
@@ -33,6 +34,7 @@ schema:
   environment_url: url
   paas_token: password
   monitoring_mode: list(infra-only|fullstack|discovery)
+  installer_arch: list(aarch64|amd64)
   log_monitoring: bool
   host_group: str?
   additional_args: str?

@@ -11,6 +11,11 @@ configuration:
     name: Monitoring mode
     description: >-
       infra-only (recommended), fullstack, or discovery.
+  installer_arch:
+    name: Installer architecture
+    description: >-
+      CPU architecture of the OneAgent installer to download. aarch64 for
+      Raspberry Pi/ARM boards, amd64 for x86 machines.
   log_monitoring:
     name: Log monitoring
     description: >-

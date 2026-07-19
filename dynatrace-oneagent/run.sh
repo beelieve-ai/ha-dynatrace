@@ -9,6 +9,7 @@ ENV_URL="$(opt environment_url)"
 ENV_URL="${ENV_URL%/}"
 TOKEN="$(opt paas_token)"
 MODE="$(opt monitoring_mode)"
+INSTALLER_ARCH="$(opt installer_arch)"
 LOG_MONITORING="$(opt log_monitoring)"
 HOST_GROUP="$(opt host_group)"
 ADDITIONAL_ARGS="$(opt additional_args)"
@@ -18,8 +19,12 @@ if [ -z "${ENV_URL}" ] || [ -z "${TOKEN}" ]; then
 	exit 1
 fi
 
-# <arch> is substituted by the upstream bootstrap (arm/x86 auto-detected).
-export ONEAGENT_INSTALLER_SCRIPT_URL="${ENV_URL}/api/v1/deployment/installer/agent/unix/default/latest?arch=<arch>&flavor=default"
+# Map HA arch names to Dynatrace installer arch families.
+case "${INSTALLER_ARCH:-aarch64}" in
+	amd64) DT_ARCH=x86 ;;
+	*) DT_ARCH=arm ;;
+esac
+export ONEAGENT_INSTALLER_SCRIPT_URL="${ENV_URL}/api/v1/deployment/installer/agent/unix/default/latest?arch=${DT_ARCH}&flavor=default"
 export ONEAGENT_INSTALLER_DOWNLOAD_TOKEN="${TOKEN}"
 
 # The Supervisor cannot bind-mount the host root filesystem into an add-on,

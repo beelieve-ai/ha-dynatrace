@@ -63,5 +63,6 @@ Because the real host filesystem is not reachable:
 
 ## Architecture support
 
-`aarch64` (Raspberry Pi 4/5, ODROID, …) and `amd64`. The correct OneAgent
-installer architecture is auto-detected.
+`aarch64` (Raspberry Pi 4/5, ODROID, …) and `amd64`. Select the matching
+OneAgent installer architecture in the add-on configuration
+(`installer_arch`, default `aarch64`).
