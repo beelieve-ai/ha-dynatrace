@@ -1,0 +1,20 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Dynatrace",
+        "data": {
+          "environment_url": "Environment URL",
+          "api_token": "API token (metrics.ingest scope)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the Dynatrace environment",
+      "invalid_auth": "Invalid API token (needs the metrics.ingest scope)"
+    },
+    "abort": {
+      "already_configured": "This Dynatrace environment is already configured"
+    }
+  }
+}

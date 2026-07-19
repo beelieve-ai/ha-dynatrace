@@ -1,0 +1,13 @@
+{
+  "domain": "dynatrace",
+  "name": "Dynatrace",
+  "codeowners": ["@esukram"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/beelieve-ai/ha-dynatrace",
+  "integration_type": "service",
+  "iot_class": "cloud_push",
+  "issue_tracker": "https://github.com/beelieve-ai/ha-dynatrace/issues",
+  "requirements": [],
+  "version": "1.0.0"
+}
