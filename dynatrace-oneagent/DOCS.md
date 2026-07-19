@@ -52,6 +52,13 @@ root filesystem into an add-on. This add-on therefore runs OneAgent with:
 - **Persistent agent storage in `/data`** — the host entity survives add-on
   updates.
 
+Home Assistant supplies the add-on configuration as `/data/options.json`.
+OneAgent's generated configuration files are written through a bind mount from
+`/var/lib/dynatrace/oneagent/agent/config` to the persistent add-on path
+`/data/storage/dynatrace_oneagent_storage/var/agent/config`. Both the add-on
+settings and OneAgent identity/configuration therefore survive restarts,
+rebuilds, and upgrades.
+
 Because the real host filesystem is not reachable:
 
 - **Deep code-level injection into other containers (Home Assistant Core,

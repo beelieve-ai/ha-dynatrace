@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.3
+
+- Ensure Home Assistant add-on options are read from the Supervisor-managed
+  `/data/options.json` file before startup.
+- Explicitly create OneAgent's generated configuration directory through the
+  persistent bind mount. Files written to
+  `/var/lib/dynatrace/oneagent/agent/config` now reliably persist at
+  `/data/storage/dynatrace_oneagent_storage/var/agent/config` across restarts,
+  rebuilds, and upgrades.
+
 ## 1.1.2
 
 - Fix installer failing with "No such file or directory" under
