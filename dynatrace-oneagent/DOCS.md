@@ -49,7 +49,9 @@ root filesystem into an add-on. This add-on therefore runs OneAgent with:
 - **Shared host PID/network/IPC namespaces** — process list, CPU, memory,
   and network metrics are the real host's.
 - **Supervisor full access** — the OneAgent container runs with the privileged
-  access Dynatrace requires for host and container process monitoring.
+  access Dynatrace requires for host and container process monitoring. The
+  required Linux capabilities are also declared explicitly for Supervisor
+  versions that do not retain them from `full_access` alone.
 - **The add-on container's filesystem as the agent's root** — filesystem
   metrics reflect the add-on container (which lives on the HAOS data
   partition), not the whole host disk layout.

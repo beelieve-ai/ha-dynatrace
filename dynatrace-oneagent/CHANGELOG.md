@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.5
+
+- Retain the explicit OneAgent Linux capabilities alongside Supervisor full
+  access. This preserves `SYS_ADMIN` for the persistent storage bind mounts on
+  Supervisor 2026.7 while still requesting full Docker-style host access.
+
 ## 1.1.4
 
 - Run the add-on with Home Assistant Supervisor `full_access`, the equivalent

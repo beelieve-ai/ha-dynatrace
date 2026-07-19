@@ -1,5 +1,5 @@
 name: Dynatrace OneAgent
-version: "1.1.4"
+version: "1.1.5"
 slug: dynatrace_oneagent
 description: Dynatrace OneAgent infrastructure monitoring for Home Assistant OS
 url: https://github.com/beelieve-ai/ha-dynatrace/tree/main/dynatrace-oneagent
@@ -17,6 +17,19 @@ apparmor: false
 # mode. In Home Assistant Supervisor this is expressed as full_access and only
 # takes effect after the user disables Protection mode for the add-on.
 full_access: true
+# Keep the capabilities explicit as well. Supervisor 2026.7 exposes the
+# full-access hardware flag independently and does not retain SYS_ADMIN for
+# this add-on without the explicit declaration; the storage bind mounts then
+# fail with EPERM before OneAgent can start.
+privileged:
+  - SYS_ADMIN
+  - SYS_PTRACE
+  - SYS_RESOURCE
+  - SYS_NICE
+  - NET_ADMIN
+  - NET_RAW
+  - DAC_READ_SEARCH
+  - IPC_LOCK
 options:
   environment_url: null
   paas_token: null
