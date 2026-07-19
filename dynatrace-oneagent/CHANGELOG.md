@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.4
+
+- Run the add-on with Home Assistant Supervisor `full_access`, the equivalent
+  of Docker privileged mode required by Dynatrace's containerized OneAgent.
+- Retain host PID, network, and IPC namespace sharing so OneAgent can discover
+  and monitor host processes such as Nginx.
+
 ## 1.1.3
 
 - Ensure Home Assistant add-on options are read from the Supervisor-managed

@@ -35,8 +35,9 @@ as an add-on:
    Add-on store → ⋮ → Repositories.
 2. Install **Dynatrace OneAgent** and configure your environment URL and PaaS
    token (see the add-on's Documentation tab).
-3. **Disable Protection mode** on the add-on's Info tab — OneAgent needs host
-   PID access, which the Supervisor only grants to unprotected add-ons.
+3. **Disable Protection mode** on the add-on's Info tab — OneAgent needs its
+   declared Supervisor full access plus host PID access, which are available
+   only to unprotected add-ons.
 4. Start the add-on.
 
 Together, the add-on gives you the host's health and the integration gives you

@@ -32,12 +32,14 @@ log_monitoring: true
 host_group: home_assistant
 ```
 
-## Protection mode
+## Full host access and Protection mode
 
 After installing, open the add-on's **Info** tab and switch **Protection
-mode** off, then start the add-on. OneAgent needs the host PID namespace,
-which the Supervisor only grants to unprotected add-ons. Without this the
-add-on will not see host processes.
+mode** off, then start the add-on. The add-on declares Supervisor
+`full_access`, which is the Home Assistant equivalent of Docker privileged
+mode required by Dynatrace's containerized OneAgent. It also needs the host
+PID namespace. Supervisor grants both only to unprotected add-ons. Without
+this, the add-on will not see or fully inspect host processes.
 
 ## How it works, and known limits
 
@@ -46,6 +48,8 @@ root filesystem into an add-on. This add-on therefore runs OneAgent with:
 
 - **Shared host PID/network/IPC namespaces** — process list, CPU, memory,
   and network metrics are the real host's.
+- **Supervisor full access** — the OneAgent container runs with the privileged
+  access Dynatrace requires for host and container process monitoring.
 - **The add-on container's filesystem as the agent's root** — filesystem
   metrics reflect the add-on container (which lives on the HAOS data
   partition), not the whole host disk layout.
