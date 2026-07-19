@@ -1,5 +1,5 @@
 name: Dynatrace OneAgent
-version: "1.1.0"
+version: "1.1.2"
 slug: dynatrace_oneagent
 description: Dynatrace OneAgent infrastructure monitoring for Home Assistant OS
 url: https://github.com/beelieve-ai/ha-dynatrace/tree/main/dynatrace-oneagent
