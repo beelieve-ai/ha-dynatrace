@@ -1,0 +1,38 @@
+name: Dynatrace OneAgent
+version: "1.0.0"
+slug: dynatrace_oneagent
+description: Dynatrace OneAgent infrastructure monitoring for Home Assistant OS
+url: https://github.com/beelieve-ai/ha-dynatrace/tree/main/dynatrace-oneagent
+arch:
+  - aarch64
+  - amd64
+init: false
+startup: system
+boot: auto
+host_network: true
+host_pid: true
+host_ipc: true
+apparmor: false
+privileged:
+  - SYS_ADMIN
+  - SYS_PTRACE
+  - SYS_RESOURCE
+  - SYS_NICE
+  - NET_ADMIN
+  - NET_RAW
+  - DAC_READ_SEARCH
+  - IPC_LOCK
+options:
+  environment_url: null
+  paas_token: null
+  monitoring_mode: infra-only
+  log_monitoring: true
+  host_group: ""
+  additional_args: ""
+schema:
+  environment_url: url
+  paas_token: password
+  monitoring_mode: list(infra-only|fullstack|discovery)
+  log_monitoring: bool
+  host_group: str?
+  additional_args: str?

@@ -1,0 +1,25 @@
+configuration:
+  environment_url:
+    name: Environment URL
+    description: >-
+      Dynatrace environment base URL, e.g. https://abc12345.live.dynatrace.com
+  paas_token:
+    name: PaaS token
+    description: >-
+      Access token with the "PaaS integration - Installer download" scope.
+  monitoring_mode:
+    name: Monitoring mode
+    description: >-
+      infra-only (recommended), fullstack, or discovery.
+  log_monitoring:
+    name: Log monitoring
+    description: >-
+      Allow OneAgent to access log contents.
+  host_group:
+    name: Host group
+    description: >-
+      Optional Dynatrace host group for this host.
+  additional_args:
+    name: Additional installer arguments
+    description: >-
+      Optional extra OneAgent installer parameters, space-separated.
