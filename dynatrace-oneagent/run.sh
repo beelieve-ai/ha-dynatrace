@@ -17,6 +17,7 @@ MODE="$(opt monitoring_mode)"
 INSTALLER_ARCH="$(opt installer_arch)"
 LOG_MONITORING="$(opt log_monitoring)"
 HOST_GROUP="$(opt host_group)"
+HOST_NAME="$(opt host_name)"
 ADDITIONAL_ARGS="$(opt additional_args)"
 
 if [ -z "${ENV_URL}" ] || [ -z "${TOKEN}" ]; then
@@ -86,6 +87,7 @@ export ONEAGENT_DISABLE_CONTAINER_INJECTION=true
 
 ARGS=("--set-monitoring-mode=${MODE}" "--set-app-log-content-access=${LOG_MONITORING:-true}")
 [ -n "${HOST_GROUP}" ] && ARGS+=("--set-host-group=${HOST_GROUP}")
+[ -n "${HOST_NAME}" ] && ARGS+=("--set-host-name=${HOST_NAME}")
 # ponytail: word-split on purpose — additional_args is a space-separated list
 # shellcheck disable=SC2206
 [ -n "${ADDITIONAL_ARGS}" ] && ARGS+=(${ADDITIONAL_ARGS})

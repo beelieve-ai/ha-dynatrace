@@ -20,6 +20,7 @@ real host processes, CPU, memory, and network metrics.
 | `monitoring_mode` | yes | `infra-only` (default), `fullstack`, or `discovery`. See below. |
 | `log_monitoring` | yes | Allow OneAgent to access log contents (`--set-app-log-content-access`). Default `true`. |
 | `host_group` | no | Dynatrace host group for this host, e.g. `home_assistant`. |
+| `host_name` | no | Custom Dynatrace display name for the existing host, e.g. `home-assistant`. This does not change the HAOS hostname or create a new host entity. |
 | `additional_args` | no | Extra space-separated OneAgent installer parameters, e.g. `--set-network-zone=home --set-proxy=...`. |
 
 Example:
@@ -30,6 +31,7 @@ paas_token: dt0c01.XXXX...
 monitoring_mode: infra-only
 log_monitoring: true
 host_group: home_assistant
+host_name: home-assistant
 ```
 
 ## Full host access and Protection mode

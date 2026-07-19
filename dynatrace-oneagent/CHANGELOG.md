@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.6
+
+- Add an optional `host_name` setting that passes Dynatrace's supported
+  `--set-host-name` override to OneAgent. It changes the existing host's
+  display name without changing the HAOS hostname or host identity.
+
 ## 1.1.5
 
 - Retain the explicit OneAgent Linux capabilities alongside Supervisor full
